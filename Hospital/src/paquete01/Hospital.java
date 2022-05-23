@@ -42,11 +42,10 @@ public class Hospital {
             
             if (aux != conjuntoMedico[i + 1].obtenerEspecialidad()) {                
                 suma++;
-            }
-            
-            numeroEsp = suma;
-            
+            }                          
         }
+        
+        numeroEsp = suma;
     }
 
     public void establecerConjuntoMed(Medico[] c) {
