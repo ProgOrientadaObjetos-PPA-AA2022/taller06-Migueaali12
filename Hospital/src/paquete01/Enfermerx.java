@@ -36,7 +36,7 @@ public class Enfermerx {
         return nombre;
     }
 
-    public String obtenerEspecialidad() {
+    public String obtenerTipo() {
         return tipo;
     }
     
