@@ -30,24 +30,6 @@ public class Hospital {
         ciudad = c;
     }
 
-    public void establecerNumeroEsp() {
-
-        int suma = 1;
-        
-        String aux;
-        
-        for (int i = 0; i < conjuntoMedico.length - 1; i++) {
-            
-            aux = conjuntoMedico[i].obtenerEspecialidad();
-            
-            if (aux != conjuntoMedico[i + 1].obtenerEspecialidad()) {                
-                suma++;
-            }                          
-        }
-        
-        numeroEsp = suma;
-    }
-
     public void establecerConjuntoMed(Medico[] c) {
 
         conjuntoMedico = c;
@@ -77,6 +59,30 @@ public class Hospital {
     public void establecerDireccion(String c) {
         direccion = c;
     }
+    
+    public void establecerNumeroEsp() {
+        
+        int suma = 0;
+        
+        String [] aux = new String[conjuntoMedico.length];
+        
+        for (int i = 0; i < conjuntoMedico.length; i++) {
+            aux[i] = conjuntoMedico[i].obtenerEspecialidad();
+        }
+                
+        for (int i = 0; i < conjuntoMedico.length; i++) {
+            
+            for (int j = 0; j < conjuntoMedico.length; j++) {
+                
+                if (aux[i].equals(conjuntoMedico[j].obtenerEspecialidad())) {
+                    suma++;
+                }
+            }
+        }
+                     
+        numeroEsp = suma - conjuntoMedico.length;
+        
+    }
 
     //Obtener 
     
@@ -88,11 +94,6 @@ public class Hospital {
     public Ciudad obtenerCiudad() {
 
         return ciudad;
-    }
-
-    public int obtenerNumEsp() {
-
-        return numeroEsp;
     }
 
     public Medico[] obtenerConjuntoMed() {
@@ -113,6 +114,11 @@ public class Hospital {
     public String obtenerDireccion() {
 
         return direccion;
+    }
+    
+    public int obtenerNumEsp() {
+
+        return numeroEsp;
     }
 
     @Override
